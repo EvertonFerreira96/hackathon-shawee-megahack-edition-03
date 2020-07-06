@@ -3,14 +3,15 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { StyleSheet, TouchableOpacity, Modal, Alert, Image, Text, View, SafeAreaView, ViewPropTypes, FlatList, ScrollView, CheckBox, Switch } from 'react-native';
 import Constants from 'expo-constants'
 import { RootStackParamList } from '../types';
-import { FontAwesome5, AntDesign, Feather } from '@expo/vector-icons'
+import { FontAwesome, FontAwesome5, AntDesign, Feather } from '@expo/vector-icons'
 import { useState, useEffect } from 'react';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { useSafeArea } from 'react-native-safe-area-context';
 
-export default function Store({ navigation }: StackScreenProps<RootStackParamList, 'Store'>) {
 
-  const [modalVisible, setModalVisible] = useState(false);
+
+export default function Book({ navigation }: StackScreenProps<RootStackParamList, 'Book'>) {
+
   //const navigation = useNavigation();
   const route = useRoute();
   const project = route.params.project;
@@ -106,29 +107,7 @@ export default function Store({ navigation }: StackScreenProps<RootStackParamLis
       }
 
 
-    <View style={styles.centeredView}>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-      >
-        <View style={styles.modalContainer}>         
-          <View style={styles.modalView}>
-            <TouchableOpacity style={{position: 'absolute', top:15, right:15}} onPress={() => setModalVisible(false) }>
-              <FontAwesome name="close" size={24} color="#333" />
-            </TouchableOpacity>
-            <Image source={rewardsSheet} />
-            <Text style={{color: '#8452EE',padding:5, fontSize:32}}>{rewardsPoints}</Text>
-            <Text style={{color: '#333', padding:5, fontSize:22, fontWeight: '700'}}>{rewardsTitle}</Text>
-            <Text style={{textAlign: 'center', padding:5, fontSize:16}}>{rewardsDescription}</Text>
-            <View style={{backgroundColor:'#8452EE', paddingHorizontal: 100, paddingVertical:10, marginTop:50 }}>
-              <TouchableOpacity onPress={() => navigation.replace('Store')} ><Text style={{color: '#FFF', fontWeight: '700'}}>Ir para loja</Text></TouchableOpacity>
-            </View>
-          </View>
-        </View>
-      </Modal>
-    </View>
-
+  
     </> 
   )
 }
@@ -194,44 +173,5 @@ const styles = StyleSheet.create({
     paddingVertical:2
 
   },
-  centeredView: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  modalContainer: {
-    flex:1,
-    justifyContent: "center",
-    alignItems: "center",
-    margin:30
-  },
-  modalView: {
-    position: 'relative',
-    backgroundColor: "#FFF",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
-  },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
-  }
+  
 });

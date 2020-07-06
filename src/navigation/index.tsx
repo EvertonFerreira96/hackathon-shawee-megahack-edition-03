@@ -16,10 +16,6 @@ import BookPlayer from '../screens/BookPlayer';
 
 export default function Navigation({ colorScheme }:{ colorScheme: ColorSchemeName }) {
 
-  const rewardsPoints = '+ 10 pontos';
-  const rewardsTitle = 'Parabéns, Anne!';
-  const rewardsDescription = 'Você leu 22 páginas hoje. Recompensa merecida, hein!';
-
   const MyTheme = {
     dark: false,
     colors: {

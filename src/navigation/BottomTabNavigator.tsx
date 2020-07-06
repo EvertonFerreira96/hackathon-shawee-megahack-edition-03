@@ -9,7 +9,9 @@ import Home from '../screens/Home';
 import Categories from '../screens/Categories';
 import League from '../screens/League';
 import { BottomTabParamList, TabHomeParamList, TabCategoriesParamList, TabLeagueParamList } from '../types';
-import { Text } from 'react-native';
+import { Text,View, Image  } from 'react-native';
+
+import liga from '../assets/liga.png';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -48,13 +50,17 @@ export default function BottomTabNavigator() {
     return (
     <BottomTab.Navigator
       initialRouteName="Início"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+      
+      tabBarOptions={{ activeTintColor: '#000' }}
       
       screenOptions={({ route, navigation }) => ({
+      
         tabBarIcon: ({ color, size, focused }) => {
             const { lib: Icon, name, size: sizeIcon } = icons[route.name];
-          return <Icon name={name} size={size-sizeIcon} color={color} style={{marginTop:5}} />;
+
+          return route.name !== 'Liga' ?  <Icon name={name} size={size-sizeIcon} color={color} style={{marginTop:5}} /> : <View style={{backgroundColor: '#8452EE', padding:20, borderRadius:50}}><Image source={liga} /></View>;
         },
+       
       })}
       >
       <BottomTab.Screen
