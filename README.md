@@ -44,6 +44,6 @@ $ yarn install
 $ yarn start
 
 # Expo will open, just scan the qrcode on terminal or expo page
+```
 
-
-Made with ♥ by Everton Ferreira :wave: [Get in touch!](https://www.linkedin.com/in/EvertonFerreira96/)
+Made with ♥ by Everton Ferreira, Camila Antunes, Taynan Ferreira, Felipe Ferreira
